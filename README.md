@@ -2,6 +2,8 @@
 barcodes
 ======
 
+DEMO: <a href="https://martbhell.github.io/barcodes/"> https://martbhell.github.io/barcodes/ </a>
+
 Takes some input in form of a csv file then prints some pay forms with bar codes 
 
 
