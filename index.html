@@ -1,11 +1,13 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<head>
 		<title>Invoice Generator with Finnish Bar Codes</title>
 		<!-- thank you: https://stackoverflow.com/questions/49123863/import-data-from-user-selected-csv-file-to-html-text-input -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.7/papaparse.min.js"></script><!-- parsing csv -->
-		<script src="https://unpkg.com/finnish-bank-utils@1.3.3/dist/finnish-bank-utils.js"></script><!-- creating and validating finnish bank virtual bar codes -->
-		<script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script><!-- generating bar codes -->
+		<script type="text/javascript" src="https://unpkg.com/finnish-bank-utils@1.3.3/dist/finnish-bank-utils.js"></script><!-- creating and validating finnish bank virtual bar codes -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script><!-- generating bar codes -->
 	</head>
 	<body>
 		<div id="readme" class="readme">
@@ -32,9 +34,9 @@ Car S,12 34561
 		<input type="file"><br>
 		<!-- <input type="text" class="d">-->
 		<table>
-			<tr><td>Account Number:</td><td> <input type="text" id="accountnr" class="accountnr" title="accountnr" value="FI21 1234 5600 0007 85"></td></tr>
-			<tr><td>Sum:</td><td> <input type="number" id="sum" class="sum" title="sum" value="20.00"></td></tr>
-			<td>Due:</td><td> <input type="text" id="due" class="due" title="due" value="15.11.2018"></td></tr>
+			<tr><td>Account Number:</td><td> <input type="text" id="accountnr" class="accountnr" title="accountnr" value="FI21 1234 5600 0007 85" style="border-bottom: 2px solid blue ;background-color: #3CBC8D"></td></tr>
+			<tr><td>Sum:</td><td> <input type="number" id="sum" class="sum" title="sum" value="20.00" style="border-bottom: 2px solid blue"></td></tr>
+			<tr><td>Due:</td><td> <input type="text" id="due" class="due" title="due" value="15.11.2018" style="border-bottom: 2px solid blue"></td></tr>
 		</table>
     <script type="text/javascript">
 $("input[type=file]").change(function(){
@@ -66,16 +68,16 @@ $("input[type=file]").change(function(){
 				    	// console.log("recipient: " + recipient);
 				    	if(recipient == ""){ continue; };
 				    	// console.log(results.data[i]);
-				            var barcode = FinnishBankUtils.formatFinnishVirtualBarCode({iban: accountnr, sum: amount, reference: refnumber, date: due});
+				        var barcode = FinnishBankUtils.formatFinnishVirtualBarCode({iban: accountnr, sum: amount, reference: refnumber, date: due});
 				    	// console.log(barcode);
 				    	var barcodeid = "barcode_" + i;
 				    	var jsbarcodeid = "#barcode_" + i;
 				    	document.write('<div id="onebill" style="border:2px solid black">');
 				    	document.write('<h2>' + recipient + '</h2>');
-				    	document.write('Amount: ' + amount + '</br>');
-				    	document.write('Account Number: ' + accountnr + '</br>');
-				    	document.write('Reference Number: ' + refnumber + '</br>');
-				    	document.write('Due: ' + due + '</br>');
+				    	document.write('Amount: ' + amount + '<br>');
+				    	document.write('Account Number: ' + accountnr + '<br>');
+				    	document.write('Reference Number: ' + refnumber + '<br>');
+				    	document.write('Due: ' + due + '<br>');
 				    	if(barcode){
 				    	    document.write('<svg id="' + barcodeid + '"></svg>');
     				    	    JsBarcode(jsbarcodeid, barcode);
