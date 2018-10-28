@@ -2,7 +2,7 @@
 language: node_js
 install:
   - npm install
-  - npm install jslint
+  - npm install htmllint-cli
 sudo: false
 node_js:
   - "8.12"
@@ -12,4 +12,5 @@ branches:
   - master
 
 script:
-  - jslint 
+  - tree
+  - cli.js index.html
