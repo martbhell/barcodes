@@ -23,3 +23,4 @@ Known Issues
    - Input page looks like it's from 1995. PRs are most welcome
    - No page splitting for nice printing. 
      - In google-chrome on Windows 10 with default margins one needs to scale it down to 86 or so to make it look nice in preview
+   - Virtual Bar codes must have a valid reference number
